@@ -1,0 +1,13 @@
+DirectoryIndex index.php
+
+# Deny access to dotfiles.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Basic security headers (Apache 2.4+)
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
